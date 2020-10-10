@@ -39,8 +39,8 @@ class Board
 
     private function initializeBoardArr()
     {
-        for ($i = 0; $i < $this->dimension; $i++) {
-            for ($j = 0; $j < $this->dimension; $j++) {
+        for ($i = 1; $i < $this->dimension-1; $i++) {
+            for ($j = 1; $j < $this->dimension-1; $j++) {
                 $this->boardArr[$i][$j] = DEFAULT_MARKUP;
             }
         }
