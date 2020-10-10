@@ -86,7 +86,7 @@ function getCoords($board)
 {
     $markup = $board->getUserMarkup();
     $coords = getValue("Enter the coordinates for the player '$markup' through '-'");
-    $coords = explode("-", $coords);
+    $coords = explode("-", ($coords-1));
     return $coords;
 }
 
