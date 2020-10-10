@@ -100,21 +100,17 @@ class Board
 
     public function setMarkupOnBoard($i, $j, $markup)
     {
-		if (isset($j)) {
-			if ($this->isCoordsCorrect($i, $j)) {
-				if ($this->isSetPossible($i, $j)) {
-					$this->boardArr[$i][$j] = $markup;
-					$this->updateCheckArr($i, $j, $markup);
-					$this->freeSpaceCount--;
-				} else {
-					throw new Exception("This place is already taken. Please try again.");
-				}
-			} else {
-				throw new Exception("Incorrect coords. Please try again.");
-			}
-		} else {
-			throw new Exception("No second coordinate. Please try again.");
-		}
+        if ($this->isCoordsCorrect($i, $j)) {
+            if ($this->isSetPossible($i, $j)) {
+                $this->boardArr[$i][$j] = $markup;
+                $this->updateCheckArr($i, $j, $markup);
+                $this->freeSpaceCount--;
+            } else {
+                throw new Exception("This place is already taken. Please try again.");
+            }
+        } else {
+            throw new Exception("Incorrect coords. Please try again.");
+        }
     }
 
     private function isCoordsCorrect($i, $j)
