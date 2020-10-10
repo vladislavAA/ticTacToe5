@@ -27,7 +27,7 @@ function startGame()
 function initialize($board)
 {
     try {
-        $board->setDimension(getValue("Enter game board size"));
+        $board->setDimension(getValue("Enter the field size "));
         $board->initialize();
     } catch (Exception $e) {
         showMessage($e->getMessage());
@@ -45,11 +45,11 @@ function gameLoop($board)
         showGameBoard($board);
         if ($currentMarkup == $board->getUserMarkup()) {
             processUserTurn($board, $currentMarkup, $stopGame);
-            $endGameMsg = "Player '$currentMarkup' wins the game.";
+            $endGameMsg = "Player '$currentMarkup' won!";
             $currentMarkup = $board->getComputerMarkup();
         } else {
             processComputerTurn($board, $currentMarkup, $stopGame);
-            $endGameMsg = "Player '$currentMarkup' wins the game.";
+            $endGameMsg = "Player '$currentMarkup' won!";
             $currentMarkup = $board->getUserMarkup();
         }
 
@@ -85,8 +85,8 @@ function processUserTurn($board, $markup, &$stopGame)
 function getCoords($board)
 {
     $markup = $board->getUserMarkup();
-    $coords = getValue("Enter coords for player '$markup'");
-    $coords = explode(" ", $coords);
+    $coords = getValue("Enter the coordinates for the player '$markup' through '-'");
+    $coords = explode("-", $coords);
     return $coords;
 }
 
