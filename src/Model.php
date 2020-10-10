@@ -100,7 +100,7 @@ class Board
 
     public function setMarkupOnBoard($i, $j, $markup)
     {
-		if ($j != NULL) {
+		if (isset($j)) {
 			if ($this->isCoordsCorrect($i, $j)) {
 				if ($this->isSetPossible($i, $j)) {
 					$this->boardArr[$i][$j] = $markup;
